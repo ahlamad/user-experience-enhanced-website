@@ -41,7 +41,7 @@ Verwerk de feedback van de Sprint Review van sprint 9, maak issues van de compon
 Schrijf voor elk issue dat je hebt aangemaakt of verplaatst een duidelijke _description_. Zo doen ze dat ook in het bedrijfsleven. 
 
 ### Analyse en knelpunten
-Schrijf voor een issue altijd een (korte) uitleg wat het issuse inhoudt en mogelijke knelpunten, en zo  nodig een user-story. 
+Schrijf voor een issue altijd een (korte) uitleg wat het issue inhoudt en mogelijke knelpunten, en zo  nodig een user-story. 
 
 Voeg een [takenlijst](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) toe als er verschillende dingen moeten gebeuren. Zoals “Ontwerp UI-stack states”, “Ontwerp User preference media features”, “Breakdown URL’s, Routes, API data”, “Routes bouwen met Fetch data”, “Views aanmaken en bouwen met dynamsiche data”, “…”
 
