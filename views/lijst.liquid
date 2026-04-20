@@ -1,0 +1,46 @@
+{% render 'partials/head.liquid', currentPath: currentPath  %}
+
+<main class="lijst-section">
+    {% if lists.size == 0 %}
+    <h1>Je hebt geen lijst om weer te geven.</h1>
+    {% endif %}
+
+    <details>
+        <summary>Maak nieuwe lijst</summary>
+            <form class="lijst-aanmaken" method="post" action="/lijsten">
+            <label for="name">Naam:</label>
+            <input id="name" name="name" type="text" required>
+            <label for="age">Leeftijd:</label>
+            <input id="age" name="age" type="number">
+            <label for="description">Beschrijving:</label>
+            <input id="description" name="description" type="text">
+
+            <button type="submit">Aanmaken</button>
+            </form>
+    </details>
+
+    <ul class="lists">
+        {% for list in lists %}
+
+          <li class="list-cards">
+            <article>
+              <h3>{{ list.name }}</h3>
+
+      {% if list.saved_products != empty %}
+        <ul>
+          {% for product in list.saved_products %}
+            <li>{{ product.img }} — € {{ product.amount }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Geen producten opgeslagen.</p>
+      {% endif %}
+
+            </article>
+          </li>
+        {% endfor %}
+      </ul>
+
+</main>
+
+</body>

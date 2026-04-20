@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milledoni</title>
+    <link rel="stylesheet" href="styles/styleguide-milledoni.css">
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav">
+        
+        <a href="/" class="logo">
+          <img src="/assets/mobile-logo.svg" alt="Milledoni home" width="50" height="50">
+        </a>
+
+        <form method="GET" action="/" class="search-bar">
+          
+            <label for="search" class="visually-hidden">Naam</label>
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Zoek jouw cadeau"
+            >
+       
+        </form>
+
+        <ul class="nav-links">
+          <li>
+            <a href="/" class="{% if currentPath == '/' %}active{% endif %}">Ontdek cadeau's</a>
+          </li>
+          <li>
+            <a href="/lijsten" class="{% if currentPath == '/lijsten' %}active{% endif %}">Lijsten</a>
+          </li>
+        </ul>
+    </nav>
+  </header>

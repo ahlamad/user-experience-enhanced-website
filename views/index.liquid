@@ -1,0 +1,76 @@
+{% render 'partials/head.liquid', currentPath: currentPath  %}
+
+<main>
+  <section class="intro">
+    <h1>Vind een persoonlijk cadeau</h1>
+      <p>Op zoek naar een cadeau voor iemand speciaal? Milledoni helpt je het perfecte cadeau te ontdekken uit verschillende webshops.</p>
+  </section>
+
+  <section class="filters">
+    <h2>Maak het persoonlijk</h2>
+    <form method="GET" action="/" class="filter-form">
+
+    <div class="filter-category">
+      <label for="price-min">Min prijs</label>
+      <input type="number" id="price-min" name="min">
+    </div>
+
+    <div class="filter-category">
+      <label for="price-max">Max prijs</label>
+      <input type="number" id="price-max" name="max">
+    </div>
+
+    <div class="filter-category">
+      <label for="color">Kleur</label>
+      <select id="color" name="color">
+        <option value="">Alle kleuren</option>
+        <option value="green">Groen</option>
+        <option value="pink">Roze</option>
+        <option value="neutral">Neutraal</option>
+      </select>
+    </div>
+
+    <div class="filter-category">
+      <label for="type">Type cadeau</label>
+      <select id="type" name="type">
+        <option value="">Alles</option>
+        <option value="object">Object</option>
+        <option value="activity">Activiteit</option>
+      </select>
+    </div>
+
+    <div class="filter-category">
+      <label for="delivery">Levering</label>
+      <select id="delivery" name="delivery">
+        <option value="">Geen voorkeur</option>
+        <option value="1day">Morgen in huis</option>
+        <option value="3days">Binnen 3 dagen</option>
+      </select>
+    </div>
+
+    <button type="submit">Zoek cadeau</button>
+    </form>
+  </section>
+
+
+  <section>
+    <h2>Inspiratie voor cadeaus</h2>
+      <ul class="products">
+        {% for product in products %}
+        <li class="product-card">
+          <article>
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+              
+            <div class="product-info">
+              <h3>{{ product.name }}</h3>
+                <p class="price-tag">€ {{ product.amount }}</p>
+                  <a href="/product/{{ product.id }}" class="product-detail">Bekijk inspiratie</a>
+            </div>
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+  </section>
+</main>
+
+{% render 'partials/footer.liquid', currentPath: currentPath  %}
