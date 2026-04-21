@@ -24,7 +24,7 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
   console.log('Route / wordt aangeroepen')
 
-  // Haal het geen wat ingevroerd wordt in de searchbar op
+  // Haal de zoekwaarde of andere waarden van de gebruiker op
   const search = request.query.search
   const min = request.query.min
   const max = request.query.max
@@ -81,7 +81,7 @@ app.get('/lijsten', async function (request, response){
   // Haal alle producten op uit de API door een object te maken
   const listParams = {
   // Sorteer op naam A - Z
-    'sort': 'name',
+    // 'sort': 'name',
   }
 
   const listResponse = await fetch(
