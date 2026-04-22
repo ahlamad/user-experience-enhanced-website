@@ -126,7 +126,8 @@ app.post('/lijsten', async function (request, response) {
     method: 'POST',
     body: JSON.stringify({
       name: request.body.name,
-      id: request.body.id
+      age: request.body.age,
+      description: request.body.description
     }),
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'

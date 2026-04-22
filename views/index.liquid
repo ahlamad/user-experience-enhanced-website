@@ -52,15 +52,24 @@
     </form>
   </section>
 
-
   <section>
     <h2>Inspiratie voor cadeaus</h2>
       <ul class="products">
         {% for product in products %}
         <li class="product-card">
           <article>
-            <img src="{{ product.image }}" alt="{{ product.name }}">
-              
+            <div class="wrapper">
+              <img 
+                loading=lazy 
+                src="{{ product.image }}" 
+                alt="{{ product.name }}"
+              >
+                          
+              <button class="add-product">
+                <img src="/assets/add-icon.svg" alt="Add product icon" width="17" height="17">
+              </button>
+            </div>
+
             <div class="product-info">
               <h3>{{ product.name }}</h3>
                 <p class="price-tag">€ {{ product.amount }}</p>

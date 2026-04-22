@@ -228,18 +228,40 @@ h2 {
   }
 }
 
+/* Wrapper voor add icon op foto*/
+.wrapper {
+  position: relative;
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  .add-product {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;  }
+}
+
 .product-info {
   padding: 1rem;
 
   h3 {
     font-size: 1rem;
     margin-bottom: .4rem;
+    font-family:'Parkinsans Medium';
   }
 }
 
 .price-tag {
   color: #466EBF;
-  font-weight: bold;
+  font-family: 'Parkinsans SemiBold';
 }
 
 .product-detail {
@@ -247,7 +269,7 @@ h2 {
   margin-top: 1em;
   color: #E2B100;
   text-decoration: none;
-  font-weight: bold;
+  font-family: 'Parkinsans Bold';
   cursor: pointer;
 
   &:hover {
