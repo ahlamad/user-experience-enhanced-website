@@ -4,6 +4,15 @@ Ontwerp en maak een interactieve website die snel laadt en prettig te gebruiken 
 
 De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/enhanced-website/blob/main/docs/INSTRUCTIONS.md)
 
+## Projectdocumentatie
+
+* [API Endpoint](https://fdnd-agency.directus.app/items/milledoni_products)
+* [Resources](https://github.com/fdnd-agency/milledoni/wiki/Design-Challenge#resources)
+* [FDND-agency GitHub](https://github.com/fdnd-agency/milledoni)
+* [Milledoni FDND website](https://milledoni.dev.fdnd.nl/?page=1)
+* [Milledoni website](https://milledoni.nl/)
+* [Interface Inventory voorbeeld](https://www.figma.com/design/nCBX4Dgea2Y5xPcQcvcbkm/Interface-Inventory?node-id=43-15)
+* [Mijn Figma](https://www.figma.com/design/o3bhgO0r5fMdONfRWEeoXv/Untitled?node-id=8-138&t=kUnXS8BY8zGYV35h-1)
 
 ## Inhoudsopgave
 
