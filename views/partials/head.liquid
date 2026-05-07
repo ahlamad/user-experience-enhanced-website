@@ -18,7 +18,7 @@
 
         <form method="GET" action="/" class="search-bar">
           
-            <label for="search" class="visually-hidden">Naam</label>
+            <label for="search" class="visually-hidden">Search</label>
             <input
               type="search"
               id="search"
@@ -29,13 +29,8 @@
        
         </form>
 
-        <ul class="nav-links">
-          <li>
-            <a href="/" class="{% if currentPath == '/' %}active{% endif %}">Ontdek cadeau's</a>
-          </li>
-          <li>
-            <a href="/lijsten" class="{% if currentPath == '/lijsten' %}active{% endif %}">Lijsten</a>
-          </li>
-        </ul>
+        <a href="/lijsten" class="lijsten">
+            <img src="/assets/lijst.svg" alt="Opgeslagen lijsten" width="35" height="35">
+        </a>
     </nav>
   </header>
