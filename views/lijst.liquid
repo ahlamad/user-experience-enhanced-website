@@ -1,8 +1,16 @@
-{% render 'partials/head.liquid', currentPath: currentPath  %}
+{% render 'partials/head.liquid'  %}
 
 <main class="lijst-section">
     {% if lists.size == 0 %}
-    <h1>Je hebt geen lijst om weer te geven.</h1>
+      <h1>Je hebt geen lijst om weer te geven.</h1>
+    {% endif %}
+
+    {% if status == 'success' %}
+      <p class="state" id="success"><img src="/assets/success-icon.svg"> Lijst <strong>{{ list.name }}</strong> is aangemaakt!</p>
+    {% endif %}
+
+    {% if status == 'error' %}
+      <p class="state" id="error">❌ Er ging iets mis</p>
     {% endif %}
 
     <details>
