@@ -24,26 +24,22 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
   console.log('Route / wordt aangeroepen')
 
-  // Haal de zoekwaarde of andere waarden van de gebruiker op
+  // Ingevulde input door de user via URL
   const search = request.query.search
   const min = request.query.min
   const max = request.query.max
 
   // Haal alle producten op uit de API door een object te maken
   const productParams = {
-    // Sorteer op naam A - Z
     'sort': 'name'
   }
 
-  // ZOEKBALK
+  // Zoekbalk op naam en alles wat in de naam zit
   if (search) {
-    // Voeg een filter toe aan de API query
-    // Directus zoekt dan producten waarvan de naam de zoekterm bevat
-    // _contains betekent: tekst komt ergens in de naam voor
     productParams['filter[name][_contains]'] = search
   }
 
-  // MINIMAAL EN MAXIMAAL BEDRAG FILTER
+  // Minimaal en maximaal bedrag filter
   if (min) {
     productParams['filter[amount][_gte]'] = min
   }
@@ -52,27 +48,49 @@ app.get('/', async function (request, response) {
     productParams['filter[amount][_lte]'] = max
   }
 
-  // Fetch request naar de Directus API
-  // Data ophalen met de API van Milledoni
+  // Productdata ophalen met Directus API van Milledoni en filters meesturen
   const productResponse = await fetch(
     'https://fdnd-agency.directus.app/items/milledoni_products?' +
     new URLSearchParams(productParams)
   )
 
-  // CHECK OF API WERKT
-  // console.log(productResponse.status)
-
+  // Zet response om naar json voor server
   const productResponseJSON = await productResponse.json()
-  // CHECK VOOR JSON DATA
-  console.log(productResponseJSON)
-
-  // Haalt lijst met de producten eruit
+  // Alleen de lijst met producten uit API
   const productData = productResponseJSON.data
 
+  // Userdata van mijzelf ophalen met alle gekoppelde data
+  const userResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/milledoni_users/64?fields=*.*'
+  )
+
+  // Zet response om naar json voor server
+  const userData = await userResponse.json()
+  // Aantal gelikete producten van de user(ikzelf)
+  const likedCount = userData.data.liked_products.length
+
   response.render('index.liquid', {
-    products: productData
+    products: productData,
+    likedCount: likedCount,
+    status: request.query.status
   })
 })
+
+// HOME PRODUCT OPSLAAN IN
+app.post("/product-opslaan", async function (request, response) {
+  await fetch("https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1", {
+    method: "POST",
+    body: JSON.stringify({
+      milledoni_users_id: 64,
+      milledoni_products_id: request.body.productId,
+    }),
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
+
+  return response.redirect('/?status=success')
+});
 
 // LIJSTENPAGINA
 app.get('/lijsten', async function (request, response){
@@ -98,15 +116,6 @@ app.get('/lijsten', async function (request, response){
     status: request.query.status
   })
 })
-
-/*
-// Zie https://expressjs.com/en/5x/api.html#app.get.method over app.get()
-app.get(…, async function (request, response) {
-  
-  // Zie https://expressjs.com/en/5x/api.html#res.render over response.render()
-  response.render(…)
-})
-*/
 
 // Zie https://expressjs.com/en/5x/api.html#app.post.method over app.post()
 app.post('/lijsten', async function (request, response) {

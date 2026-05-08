@@ -1,10 +1,14 @@
-{% render 'partials/head.liquid'  %}
+{% render 'partials/head.liquid', likedCount: likedCount %}
 
 <main>
   <section class="intro">
     <h1>Vind een persoonlijk cadeau</h1>
       <p>Op zoek naar een cadeau voor iemand speciaal? Milledoni helpt je het perfecte cadeau te ontdekken uit verschillende webshops.</p>
   </section>
+
+  {% if status == 'success' %}
+    <p class="state"><img src="/assets/success-icon.svg" alt="Succes notification"> Product is toegevoegd.</p>
+  {% endif %}
 
   <section class="filters">
     <h2>Maak het persoonlijk</h2>
@@ -65,9 +69,12 @@
                 alt="{{ product.name }}"
               >
                           
-              <button class="add-product">
-                <img src="/assets/add-icon.svg" alt="Add product icon" width="17" height="17">
-              </button>
+      <form method="POST" action="/product-opslaan">
+        <input type="hidden" name="productId" value="{{ product.id }}">
+        <button type="submit" class="add-product">
+          <img src="/assets/add-icon.svg" alt="Add product icon" width="17" height="17">
+        </button>
+      </form>
             </div>
 
             <div class="product-info">
@@ -82,4 +89,4 @@
   </section>
 </main>
 
-{% render 'partials/footer.liquid', currentPath: currentPath  %}
+{% render 'partials/footer.liquid' %}
