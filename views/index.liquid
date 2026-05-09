@@ -7,7 +7,7 @@
   </section>
 
   {% if status == 'success' %}
-    <p class="state"><img src="/assets/success-icon.svg" alt="Succes notification"> Product is toegevoegd.</p>
+    <p class="state"><img src="/assets/success-icon.svg" alt="Succes notification" width="17" height="17"> Product is toegevoegd.</p>
   {% endif %}
 
   <section class="filters">
@@ -63,18 +63,24 @@
         <li class="product-card">
           <article>
             <div class="wrapper">
-              <img 
-                loading=lazy 
-                src="{{ product.image }}" 
-                alt="{{ product.name }}"
-              >
-                          
-      <form method="POST" action="/product-opslaan">
-        <input type="hidden" name="productId" value="{{ product.id }}">
-        <button type="submit" class="add-product">
-          <img src="/assets/add-icon.svg" alt="Add product icon" width="17" height="17">
-        </button>
-      </form>
+              <picture>
+                <source srcset="{{ product.image_avif }}" type="image/avif">
+                <source srcset="{{ product.image_webp }}" type="image/webp">
+                <img 
+                  loading="lazy"
+                  src="{{ product.image }}" 
+                  alt="{{ product.name }}"
+                  width="300"
+                  height="300"
+                >
+              </picture>
+            
+              <form method="POST" action="/product-opslaan">
+                <input type="hidden" name="productId" value="{{ product.id }}">
+                <button type="submit" class="add-product">
+                  <img src="/assets/add-icon.svg" alt="Add product icon" width="17" height="17" loading="lazy">
+                </button>
+              </form>
             </div>
 
             <div class="product-info">
