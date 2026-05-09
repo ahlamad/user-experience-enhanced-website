@@ -313,6 +313,16 @@ h2 {
 }
 
 /* LIJST.LIQUID */
+.go-back {
+  display: flex;
+  place-items: center;
+  width: fit-content;
+
+  img {
+    margin: 0;
+  }
+}
+
 summary {
   margin: 1.4rem;
   padding: .8em;  
