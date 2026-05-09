@@ -38,7 +38,7 @@ body {
       color: black;
       width: 18px;
       height: 18px;
-      translate: -22.5px 3px;
+      translate: -24px 3px;
       font-size: 16px;
     }
   } 
@@ -370,6 +370,34 @@ summary {
 
 #success {
   filter: drop-shadow(0 0 0.5rem #11880D);
+  animation-name: popup;
+  animation-duration: 1.5s;  
+}
+
+@keyframes popup{
+  0% {
+    scale: 0.8;
+    opacity: 0;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.state {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 1s,
+  opacity 1.5s;
+  pointer-events: none;
+}
+
+.state.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 #error {
